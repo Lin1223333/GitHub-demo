@@ -1,28 +1,16 @@
-name: CI Pipeline
-
+name: "CI"
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: '0 0 * * *'
+    branches:
+      - main
 
 jobs:
-  build-test-job:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
+      - name: Get Your Code
+        uses: actions/checkout@v2
 
-      - name: Run functional tests
-        run: echo "Running functional tests"
+      - name: Say Hello to the World
+        run: echo "Hello, World!"
 
-      - name: Build application
-        run: echo "Building the application"
-
-      - name: Security check
-        run: echo "Running security checks"
-
-      - name: Deploy to staging server
-        run: echo "Deploying to staging environment"
